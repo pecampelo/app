@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: trio-bridge-demo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/trio-bridge-demo
+    ports:
+      - "3000:3000" # for development
+      - "8080:8080" # for production
+    expose:
+      - 3000 # for development
+      - 8080 # for production
+    environment:
+      - NODE_ENV=production
+
